@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Gesture Drawing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="loadingScreen">
+            <div class="spinner"></div>
+            <h2>Loading Hand Tracking...</h2>
+            <p>Please allow camera access</p>
+        </div>
+
+        <video id="videoElement" autoplay playsinline></video>
+        <canvas id="canvasElement"></canvas>
+        <canvas id="drawingCanvas"></canvas>
+        <div id="cursor"></div>
+
+        <div id="gestureIndicator">
+            <div>Mode: <span id="currentMode">Hover</span></div>
+            <div>Gesture: <span id="currentGesture">None</span></div>
+        </div>
+
+        <div id="colorPalette">
+            <div class="color-option selected" data-color="#FF0000" style="background-color: #FF0000;"></div>
+            <div class="color-option" data-color="#00FF00" style="background-color: #00FF00;"></div>
+            <div class="color-option" data-color="#0000FF" style="background-color: #0000FF;"></div>
+        </div>
+
+        <div id="controls">
+            <button class="control-btn" id="clearBtn">Clear Canvas</button>
+            <button class="control-btn" id="saveBtn">Save Drawing</button>
+        </div>
+    </div>
+
+    <!-- Load MediaPipe libraries first -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    
+    <!-- Load our script last -->
+    <script src="script.js"></script>
+</body>
+</html>
